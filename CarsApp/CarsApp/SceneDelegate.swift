@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  CarsApp
 //
-//  Created by  Decagon on 04/12/2021.
+//  Created by  Tes on 04/12/2021.
 //
 
 import UIKit
@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let rootViewCOntroller = TabBarViewController()
+        let rootViewCOntroller = TabBarController()
         
         let navigationController = UINavigationController(rootViewController: rootViewCOntroller)
         

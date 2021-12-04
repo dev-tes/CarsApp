@@ -2,12 +2,12 @@
 //  TabBarViewController.swift
 //  CarsApp
 //
-//  Created by  Decagon on 04/12/2021.
+//  Created by  Tes on 04/12/2021.
 //
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class TabBarViewController: UITabBarController {
         // MARK: Assign viewController to tab Bar
               self.setViewControllers([homeViewController, favoriteViewController, notificationViewController, chatViewController], animated: false)
               guard let items = self.tabBar.items else { return }
-              let images = ["house.fill", "magnifyingglass", "bell.fill", "message.fill"]
+              let images = ["house.fill", "heart.fill", "bell.fill", "message.fill"]
               for item in 0...3 {
                 items[item].image = UIImage(systemName: images[item])
               }
