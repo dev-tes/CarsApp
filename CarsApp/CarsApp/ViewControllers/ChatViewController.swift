@@ -1,5 +1,5 @@
 //
-//  NotificationViewController.swift
+//  ChatViewController.swift
 //  CarsApp
 //
 //  Created by  Tes on 04/12/2021.
@@ -7,10 +7,11 @@
 
 import UIKit
 
-class NotificationViewController: UIViewController {
+class ChatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemGray
 
         // Do any additional setup after loading the view.
     }

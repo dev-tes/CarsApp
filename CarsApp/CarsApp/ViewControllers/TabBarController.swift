@@ -18,15 +18,19 @@ class TabBarController: UITabBarController {
                 let favoriteViewController = FavouriteViewController()
                 let notificationViewController = NotificationViewController()
                 let chatViewController = ChatViewController()
+                let cartViewController = CartViewController()
         // MARK: Assign viewController to tab Bar
-              self.setViewControllers([homeViewController, favoriteViewController, notificationViewController, chatViewController], animated: false)
+              self.setViewControllers([homeViewController, favoriteViewController, cartViewController, notificationViewController, chatViewController], animated: false)
               guard let items = self.tabBar.items else { return }
-              let images = ["house.fill", "heart.fill", "bell.fill", "message.fill"]
-              for item in 0...3 {
+              let images = ["house.fill", "heart.fill","", "bell.fill", "message.fill"]
+              for item in 0...4 {
                 items[item].image = UIImage(systemName: images[item])
               }
+        items[2].image = UIImage(named: "57")
+        
         // MARK: Changing tint Color
         self.tabBar.tintColor = .systemGray
+        self.tabBar.backgroundColor = .white
     
     }
     
