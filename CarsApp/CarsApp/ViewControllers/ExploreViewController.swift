@@ -40,8 +40,7 @@ class ExploreViewController: UIViewController {
       textField.translatesAutoresizingMaskIntoConstraints = false
       textField.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.00)
       textField.layer.borderWidth = 0
-      textField.placeholder = "☌ Search"
-      textField.isSecureTextEntry = true
+      textField.placeholder = "🔎 Search"
       textField.autocapitalizationType = .none
       textField.layer.cornerRadius = 10
       return textField
@@ -57,6 +56,7 @@ class ExploreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
+        setupConstraints()
     }
 
     
@@ -66,8 +66,8 @@ class ExploreViewController: UIViewController {
       view.addSubview(exploreIcon)
       view.addSubview(cartIcon)
       view.addSubview(searchButton)
-      view.addSubview(productCollectionView)
-      view.addSubview(brandCollectionView)
+//      view.addSubview(productCollectionView)
+//      view.addSubview(brandCollectionView)
       view.addSubview(searchBar)
     }
     // MARK: - FUNCTION TO SETUP VIEW CONSTRAINTS
@@ -75,15 +75,15 @@ class ExploreViewController: UIViewController {
       addDefaultViews()
       NSLayoutConstraint.activate([
         //MARK: - CONSTRAINTS FOR EXPLORE ICON
-        exploreIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+        exploreIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -20),
         exploreIcon.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         exploreIcon.heightAnchor.constraint(equalToConstant: 25),
         exploreIcon.widthAnchor.constraint(equalToConstant: 25),
         //MARK: - CONSTRAINTS FOR PAGETITLE LABEL
-        titlePageLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+        titlePageLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -20),
         titlePageLabel.leadingAnchor.constraint(equalTo: exploreIcon.trailingAnchor, constant: 20),
         //MARK: - CONSTRAINTS FOR PAGETITLE LABEL
-        cartIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+        cartIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -20),
         cartIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         cartIcon.heightAnchor.constraint(equalToConstant: 30),
         cartIcon.widthAnchor.constraint(equalToConstant: 30),
@@ -100,11 +100,11 @@ class ExploreViewController: UIViewController {
         searchButton.heightAnchor.constraint(equalToConstant: 50),
         searchButton.widthAnchor.constraint(equalToConstant: 50),
       ])
-      brandCollectionView.anchorWithConstantsToTop(top: searchBar.bottomAnchor,
-                                                   left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 20, leftConstant: 20, bottomConstant: 580, rightConstant: 0)
-      
-      productCollectionView.anchorWithConstantsToTop(top: brandCollectionView.bottomAnchor,
-                                                     left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 20, leftConstant: 20, bottomConstant: 20, rightConstant: 20)
+//      brandCollectionView.anchorWithConstantsToTop(top: searchBar.bottomAnchor,
+//                                                   left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 20, leftConstant: 20, bottomConstant: 580, rightConstant: 0)
+//
+//      productCollectionView.anchorWithConstantsToTop(top: brandCollectionView.bottomAnchor,
+//                                                     left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 20, leftConstant: 20, bottomConstant: 20, rightConstant: 20)
     }
 
 }

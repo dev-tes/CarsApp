@@ -19,6 +19,7 @@
 		04B325E3275B385F00DA9307 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325E2275B385F00DA9307 /* ChatViewController.swift */; };
 		04B325E5275B400F00DA9307 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325E4275B400F00DA9307 /* CartViewController.swift */; };
 		04B325E7275B4E0E00DA9307 /* ExploreViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325E6275B4E0E00DA9307 /* ExploreViewControllerExtension.swift */; };
+		04B325F0275BE3E800DA9307 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325EF275BE3E800DA9307 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		04B325E2275B385F00DA9307 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		04B325E4275B400F00DA9307 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		04B325E6275B4E0E00DA9307 /* ExploreViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewControllerExtension.swift; sourceTree = "<group>"; };
+		04B325EF275BE3E800DA9307 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				04B325E6275B4E0E00DA9307 /* ExploreViewControllerExtension.swift */,
+				04B325EF275BE3E800DA9307 /* UIViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B325F0275BE3E800DA9307 /* UIViewExtension.swift in Sources */,
 				04B325DD275B37A000DA9307 /* TabBarController.swift in Sources */,
 				04B325CD275B337100DA9307 /* ExploreViewController.swift in Sources */,
 				04B325E1275B384500DA9307 /* NotificationViewController.swift in Sources */,
