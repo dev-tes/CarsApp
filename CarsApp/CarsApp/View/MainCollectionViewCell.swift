@@ -83,4 +83,58 @@ class MainCollectionViewCell: UICollectionViewCell {
       button.translatesAutoresizingMaskIntoConstraints = false
       return button
     }()
+    
+    override init(frame: CGRect) {
+      super.init(frame: frame)
+      setUpViews()
+      
+    }
+    
+    func setUpViews() {
+      productDetailsView.addSubview(productNametextView)
+      productDetailsView.addSubview(productBrandTextView)
+      productDetailsView.addSubview(productPriceTextView)
+      productDetailsView.addSubview(productRateView)
+      productDetailsView.addSubview(productRateLabel)
+      addSubview(productImageV)
+      addSubview(productDetailsView)
+      addSubview(addButton)
+      addSubview(productImageView)
+      productDetailsView.addSubview(productImageV)
+      
+      productImageView.anchorWithConstantsToTop(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0)
+      
+      productDetailsView.anchorWithConstantsToTop(top: topAnchor, left: leftAnchor, bottom:bottomAnchor, right: rightAnchor, topConstant: 80, leftConstant: 20, bottomConstant: 0, rightConstant: 20)
+      
+      productImageV.anchorWithConstantsToTop(top: topAnchor, left:  leftAnchor, bottom: productDetailsView.bottomAnchor, right: rightAnchor, topConstant: 5, leftConstant: 35, bottomConstant: 100, rightConstant: 35)
+      
+      productNametextView.anchorWithConstantsToTop(top: productImageV.bottomAnchor, left: leftAnchor,
+                                                   bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
+                                                   bottomConstant: 60, rightConstant: 0)
+      productBrandTextView.anchorWithConstantsToTop(top: productNametextView.bottomAnchor, left: leftAnchor,
+                                                    bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
+                                                    bottomConstant: 40, rightConstant: 0)
+      productPriceTextView.anchorWithConstantsToTop(top: productBrandTextView.bottomAnchor, left: leftAnchor,
+                                                    bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
+                                                    bottomConstant: 0, rightConstant: 0)
+      productRateView.anchorWithConstantsToTop(top: productBrandTextView.bottomAnchor, left: leftAnchor,
+                                               bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 300,
+                                               bottomConstant: 70, rightConstant: 0)
+      productRateView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05).isActive = true
+      productRateView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05).isActive = true
+      addButton.anchorWithConstantsToTop(top: productRateView.bottomAnchor, left: leftAnchor,
+                                         bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 330,
+                                         bottomConstant: 20, rightConstant: 0)
+      addButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1).isActive = true
+      addButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.1).isActive = true
+      
+      NSLayoutConstraint.activate([
+        productRateLabel.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -12),
+        productRateLabel.trailingAnchor.constraint(equalTo: productDetailsView.trailingAnchor, constant: -30)
+      ])
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

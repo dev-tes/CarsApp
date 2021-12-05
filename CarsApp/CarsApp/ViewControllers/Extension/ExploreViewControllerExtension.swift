@@ -33,7 +33,6 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
 //            self.cars = data
 //            let imageUrlString = self.cars?.makeList[indexPath.item].imageUrl ?? ""
 //            let url = URL(string: self.cars?.makeList[indexPath.item].imageUrl ?? "")
-            brandCollectionView.isPagingEnabled = true
             DispatchQueue.main.async {
                 cell.productImageView.image = UIImage(systemName: "house")
               cell.brandName.text = "Toyota"
@@ -56,10 +55,12 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
 //              cell.productBrandTextView.text =  self.list?.result[indexPath.item].sellingCondition
 //              cell.productPriceTextView.text = self.list?.result[indexPath.item].mileageUnit
 //
-                
+                cell.productImageView.image = UIImage(systemName: "house")
                 cell.productNametextView.text =   "Textholder"
                 cell.productBrandTextView.text =  "Textholder1"
                 cell.productPriceTextView.text = "Textholder2"
+                cell.backgroundColor = .yellow
+                cell.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
               
             }
 //          }

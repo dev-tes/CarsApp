@@ -68,7 +68,6 @@ class ExploreViewController: UIViewController {
       collectionView.isUserInteractionEnabled = true
       collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//        collectionView.frame = view.bounds
       return collectionView
     }()
     // MARK: - COLLECTION VIEW
@@ -141,9 +140,9 @@ class ExploreViewController: UIViewController {
 //        brandCollectionView.bottomAnchor.constraint(equalTo: mainCollectionView.topAnchor, constant: 20),
         
         mainCollectionView.topAnchor.constraint(equalTo: brandCollectionView.bottomAnchor, constant: 20),
-        mainCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        mainCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//        mainCollectionView.bottomAnchor.constraint(equalTo: mainCollectionView.topAnchor, constant: 20),
+        mainCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        mainCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20),
+        mainCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 20),
         
         
       ])
