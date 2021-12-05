@@ -52,6 +52,41 @@ class ExploreViewController: UIViewController {
       button.translatesAutoresizingMaskIntoConstraints = false
       return button
     }()
+    
+    // MARK: - COLLECTION VIEW
+    lazy var brandCollectionView: UICollectionView = {
+      let layout = UICollectionViewFlowLayout()
+      layout.scrollDirection = .horizontal
+        layout.collectionView?.isPagingEnabled = true
+      layout.minimumLineSpacing = 20
+      let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+      collectionView.dataSource = self
+      collectionView.delegate = self
+      collectionView.backgroundColor =  .white
+      collectionView.showsHorizontalScrollIndicator = false
+      collectionView.register(BrandCollectionViewCell.self, forCellWithReuseIdentifier: BrandCollectionViewCell.identifier)
+      collectionView.isUserInteractionEnabled = true
+      collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        collectionView.frame = view.bounds
+      return collectionView
+    }()
+    // MARK: - COLLECTION VIEW
+    lazy var mainCollectionView: UICollectionView = {
+      let layout = UICollectionViewFlowLayout()
+      layout.scrollDirection = .vertical
+      layout.minimumLineSpacing = 30
+      let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+      collectionView.dataSource = self
+      collectionView.delegate = self
+      collectionView.backgroundColor =  UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.00)
+      collectionView.showsHorizontalScrollIndicator = false
+      collectionView.isUserInteractionEnabled = true
+      collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
+      collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .green
+      return collectionView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +101,8 @@ class ExploreViewController: UIViewController {
       view.addSubview(exploreIcon)
       view.addSubview(cartIcon)
       view.addSubview(searchButton)
-//      view.addSubview(productCollectionView)
-//      view.addSubview(brandCollectionView)
+      view.addSubview(mainCollectionView)
+      view.addSubview(brandCollectionView)
       view.addSubview(searchBar)
     }
     // MARK: - FUNCTION TO SETUP VIEW CONSTRAINTS
@@ -88,8 +123,8 @@ class ExploreViewController: UIViewController {
         cartIcon.heightAnchor.constraint(equalToConstant: 30),
         cartIcon.widthAnchor.constraint(equalToConstant: 30),
         //MARK: - CONSTRAINTS FOR SEARCH BAR
-        searchBar.topAnchor.constraint(equalTo: cartIcon.bottomAnchor, constant: 20),
-        searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+        searchBar.topAnchor.constraint(equalTo: exploreIcon.bottomAnchor, constant: 20),
+        searchBar.leadingAnchor.constraint(equalTo: exploreIcon.leadingAnchor),
         searchBar.trailingAnchor.constraint(equalTo: searchButton.leadingAnchor, constant: -10),
         searchBar.heightAnchor.constraint(equalToConstant: 50),
         searchBar.widthAnchor.constraint(equalToConstant: 50),
@@ -99,13 +134,24 @@ class ExploreViewController: UIViewController {
         searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         searchButton.heightAnchor.constraint(equalToConstant: 50),
         searchButton.widthAnchor.constraint(equalToConstant: 50),
+        
+        brandCollectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20),
+        brandCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+        brandCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 10),
+//        brandCollectionView.bottomAnchor.constraint(equalTo: mainCollectionView.topAnchor, constant: 20),
+        
+        mainCollectionView.topAnchor.constraint(equalTo: brandCollectionView.bottomAnchor, constant: 20),
+        mainCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        mainCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//        mainCollectionView.bottomAnchor.constraint(equalTo: mainCollectionView.topAnchor, constant: 20),
+        
+        
       ])
 //      brandCollectionView.anchorWithConstantsToTop(top: searchBar.bottomAnchor,
-//                                                   left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 20, leftConstant: 20, bottomConstant: 580, rightConstant: 0)
-//
-//      productCollectionView.anchorWithConstantsToTop(top: brandCollectionView.bottomAnchor,
+//                                                   left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 20, leftConstant: 20, bottomConstant: 600, rightConstant: 0)
+
+//        mainCollectionView.anchorWithConstantsToTop(top: brandCollectionView.bottomAnchor,
 //                                                     left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 20, leftConstant: 20, bottomConstant: 20, rightConstant: 20)
     }
 
 }
-
