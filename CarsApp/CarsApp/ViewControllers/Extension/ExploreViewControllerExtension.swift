@@ -60,7 +60,6 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
                 cell.productBrandTextView.text =  "Textholder1"
                 cell.productPriceTextView.text = "Textholder2"
                 cell.backgroundColor = .yellow
-                cell.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
               
             }
 //          }

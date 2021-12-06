@@ -22,6 +22,9 @@
 		04B325F0275BE3E800DA9307 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325EF275BE3E800DA9307 /* UIViewExtension.swift */; };
 		04B325F2275BF77500DA9307 /* BrandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325F1275BF77500DA9307 /* BrandCollectionViewCell.swift */; };
 		04B325F4275BF82400DA9307 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325F3275BF82400DA9307 /* MainCollectionViewCell.swift */; };
+		04B325F6275E2D0300DA9307 /* PopularCarsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325F5275E2D0300DA9307 /* PopularCarsModel.swift */; };
+		04B325F8275E2D5900DA9307 /* CarsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325F7275E2D5900DA9307 /* CarsListModel.swift */; };
+		04B325FA275E2DA800DA9307 /* CarDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325F9275E2DA800DA9307 /* CarDetailsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		04B325EF275BE3E800DA9307 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		04B325F1275BF77500DA9307 /* BrandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionViewCell.swift; sourceTree = "<group>"; };
 		04B325F3275BF82400DA9307 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		04B325F5275E2D0300DA9307 /* PopularCarsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCarsModel.swift; sourceTree = "<group>"; };
+		04B325F7275E2D5900DA9307 /* CarsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListModel.swift; sourceTree = "<group>"; };
+		04B325F9275E2DA800DA9307 /* CarDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,9 @@
 		04B325EB275BDF4F00DA9307 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04B325F5275E2D0300DA9307 /* PopularCarsModel.swift */,
+				04B325F7275E2D5900DA9307 /* CarsListModel.swift */,
+				04B325F9275E2DA800DA9307 /* CarDetailsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,10 +230,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B325F8275E2D5900DA9307 /* CarsListModel.swift in Sources */,
 				04B325F0275BE3E800DA9307 /* UIViewExtension.swift in Sources */,
 				04B325DD275B37A000DA9307 /* TabBarController.swift in Sources */,
 				04B325CD275B337100DA9307 /* ExploreViewController.swift in Sources */,
+				04B325FA275E2DA800DA9307 /* CarDetailsModel.swift in Sources */,
 				04B325E1275B384500DA9307 /* NotificationViewController.swift in Sources */,
+				04B325F6275E2D0300DA9307 /* PopularCarsModel.swift in Sources */,
 				04B325E3275B385F00DA9307 /* ChatViewController.swift in Sources */,
 				04B325E5275B400F00DA9307 /* CartViewController.swift in Sources */,
 				04B325E7275B4E0E00DA9307 /* ExploreViewControllerExtension.swift in Sources */,
