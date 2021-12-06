@@ -9,6 +9,9 @@ import UIKit
 
 class ExploreViewController: UIViewController {
     
+    var viewModel = [BrandCollectionViewModel]()
+    var cars: [MakeList]?
+    
     // MARK: - TIME LABEL TO DISPLAY THE PAGE TITLE
     lazy var titlePageLabel: UILabel = {
       let label = UILabel()
@@ -91,6 +94,7 @@ class ExploreViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
         setupConstraints()
+        populateCollectionView()
     }
 
     

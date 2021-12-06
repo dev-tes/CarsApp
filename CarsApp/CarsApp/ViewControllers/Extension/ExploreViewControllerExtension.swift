@@ -19,27 +19,37 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == brandCollectionView {
-          return 10
+            return viewModel.count
         }
         else {
           return 15
         }
     }
     
+    func populateCollectionView() {
+        DataLoader.shared.pullJSONData { [weak self] data in
+            self?.cars = data.makeList
+            self?.viewModel = (self?.cars?.compactMap({
+                BrandCollectionViewModel(
+                    brandName: $0.name,
+                    productImageURL: $0.imageUrl
+                )
+            }))!
+                    
+                DispatchQueue.main.async {
+                    self?.brandCollectionView.reloadData()
+                }
+            }
+        
+    }
+
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == brandCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BrandCollectionViewCell.identifier, for: indexPath) as? BrandCollectionViewCell else { return UICollectionViewCell() }
-//          dataLoader.pullJSONData { data in
-//            self.cars = data
-//            let imageUrlString = self.cars?.makeList[indexPath.item].imageUrl ?? ""
-//            let url = URL(string: self.cars?.makeList[indexPath.item].imageUrl ?? "")
-            DispatchQueue.main.async {
-                cell.productImageView.image = UIImage(systemName: "house")
-              cell.brandName.text = "Toyota"
+                cell.configure(with: viewModel[indexPath.row])
               cell.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
               cell.layer.cornerRadius = cell.frame.size.height/2
-            }
-//          }
           return cell
         } else {
           
@@ -69,6 +79,8 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       if collectionView == mainCollectionView {
           print("pCV")
+      } else {
+          print("Pcv")
       }
     }
 }

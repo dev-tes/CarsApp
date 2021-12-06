@@ -25,6 +25,8 @@
 		04B325F6275E2D0300DA9307 /* PopularCarsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325F5275E2D0300DA9307 /* PopularCarsModel.swift */; };
 		04B325F8275E2D5900DA9307 /* CarsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325F7275E2D5900DA9307 /* CarsListModel.swift */; };
 		04B325FA275E2DA800DA9307 /* CarDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325F9275E2DA800DA9307 /* CarDetailsModel.swift */; };
+		04B325FC275E749E00DA9307 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325FB275E749E00DA9307 /* DataLoader.swift */; };
+		04B325FE275E851100DA9307 /* BrandCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325FD275E851100DA9307 /* BrandCollectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		04B325F5275E2D0300DA9307 /* PopularCarsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCarsModel.swift; sourceTree = "<group>"; };
 		04B325F7275E2D5900DA9307 /* CarsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListModel.swift; sourceTree = "<group>"; };
 		04B325F9275E2DA800DA9307 /* CarDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsModel.swift; sourceTree = "<group>"; };
+		04B325FB275E749E00DA9307 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		04B325FD275E851100DA9307 /* BrandCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 		04B325EC275BDF5900DA9307 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				04B325FD275E851100DA9307 /* BrandCollectionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 		04B325ED275BDF6F00DA9307 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				04B325FB275E749E00DA9307 /* DataLoader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -240,8 +246,10 @@
 				04B325E3275B385F00DA9307 /* ChatViewController.swift in Sources */,
 				04B325E5275B400F00DA9307 /* CartViewController.swift in Sources */,
 				04B325E7275B4E0E00DA9307 /* ExploreViewControllerExtension.swift in Sources */,
+				04B325FE275E851100DA9307 /* BrandCollectionViewModel.swift in Sources */,
 				04B325F4275BF82400DA9307 /* MainCollectionViewCell.swift in Sources */,
 				04B325C9275B337100DA9307 /* AppDelegate.swift in Sources */,
+				04B325FC275E749E00DA9307 /* DataLoader.swift in Sources */,
 				04B325F2275BF77500DA9307 /* BrandCollectionViewCell.swift in Sources */,
 				04B325DF275B382A00DA9307 /* FavouriteViewController.swift in Sources */,
 				04B325CB275B337100DA9307 /* SceneDelegate.swift in Sources */,

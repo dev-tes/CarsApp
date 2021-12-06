@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 
 class BrandCollectionViewCell: UICollectionViewCell {
     static let identifier = "BrandCollectionViewCell"
@@ -17,7 +18,6 @@ class BrandCollectionViewCell: UICollectionViewCell {
       imageView.image = UIImage(systemName: "house")
       imageView.translatesAutoresizingMaskIntoConstraints = false
       imageView.layer.cornerRadius =  imageView.frame.size.height/2
-        imageView.backgroundColor = .red
       return imageView
     }()
     let brandName: UILabel = {
@@ -42,10 +42,32 @@ class BrandCollectionViewCell: UICollectionViewCell {
       brandName.anchorWithConstantsToTop(top: productImageView.bottomAnchor, left: leftAnchor,
                                          bottom: bottomAnchor,
                                          right: rightAnchor,
-                                         topConstant: 50,
+                                         topConstant: 70,
                                          leftConstant: 6,
                                          bottomConstant: 0, rightConstant: -10)
       brandName.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35).isActive = true
+    }
+    
+    public func configure(with viewModel: BrandCollectionViewModel) {
+        brandName.text = viewModel.brandName
+        let urlString = viewModel.productImageURL
+        
+        if let data = viewModel.imageData {
+            productImageView.image = UIImage(data: data)
+        } else if let url = URL(string: urlString) {
+            URLSession.shared.dataTask(with: url) { data, _, error in
+                guard let data = data, error == nil else { return}
+                viewModel.imageData = data
+                DispatchQueue.main.async {
+                    self.productImageView.image = UIImage(data: data)
+                }
+            }.resume()
+        }
+    }
+    
+    override func prepareForReuse() {
+        productImageView.image = nil
+        brandName.text = nil
     }
     
     required init?(coder: NSCoder) {
