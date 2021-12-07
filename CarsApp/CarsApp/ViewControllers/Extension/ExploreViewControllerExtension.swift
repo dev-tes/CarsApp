@@ -76,7 +76,7 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
             cell.configure(with: mainCollectionViewModel[indexPath.row])
-            return cell 
+            return cell
         }
     }
     
@@ -91,10 +91,10 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == mainCollectionView {
             let viewController = ProductDetailsViewController()
-            viewController.productName = (list?.result[indexPath.row].title ?? "\(indexPath.row)")
-            viewController.productBrand = (list?.result[indexPath.row].sellingCondition  ?? "\(indexPath.row)")
-            viewController.productPrice = (list?.result[indexPath.row].state  ?? "\(indexPath.row)")
-            viewController.configure(with: (list?.result[indexPath.row].imageUrl)!)
+            viewController.productName = mainCollectionViewModel[indexPath.row].title
+            viewController.productBrand = String(mainCollectionViewModel[indexPath.row].year)
+            viewController.productPrice = (mainCollectionViewModel[indexPath.row].state)
+            viewController.configure(with: (mainCollectionViewModel[indexPath.row].imageURL))
             navigationController?.pushViewController(viewController, animated: true)
         }
     }

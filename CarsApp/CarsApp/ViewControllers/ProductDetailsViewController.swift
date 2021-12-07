@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVGKit
 
 class ProductDetailsViewController: UIViewController {
     
@@ -152,10 +153,35 @@ class ProductDetailsViewController: UIViewController {
     var productBrand = ""
     var productPrice = ""
     var productImage = UIImage()
+    
     func configure(with urlString: String){
       guard let url = URL(string: urlString) else {
         return
       }
+        
+        if urlString.contains("svg"){
+
+            URLSession.shared.dataTask(with: url) { data, _, error in
+                guard let data = data, error == nil else { return}
+                DispatchQueue.main.async {
+                    guard let image: SVGKImage = SVGKImage(contentsOf: url) else {
+                        return
+                    }
+                    self.productImageV.image = image.uiImage
+                    guard let img  = UIImage(data: data) else { return }
+                    self.productImageV.image = img
+                }
+            }.resume()
+
+        } else {
+            URLSession.shared.dataTask(with: url) { data, _, error in
+                guard let data = data, error == nil else { return}
+                DispatchQueue.main.async {
+                    self.productImageV.image = UIImage(data: data)
+                }
+            }.resume()
+        }
+        
       URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
         guard let data = data , error == nil else {
           return
@@ -166,6 +192,7 @@ class ProductDetailsViewController: UIViewController {
         }
       }.resume()
     }
+    
     override func viewDidLoad() {
       super.viewDidLoad()
       view.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)

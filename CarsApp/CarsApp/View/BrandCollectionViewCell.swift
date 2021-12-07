@@ -15,7 +15,7 @@ class BrandCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.image = UIImage(systemName: "house")
+        imageView.image = UIImage(systemName: "")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius =  imageView.frame.size.height/2
         return imageView
@@ -77,7 +77,6 @@ class BrandCollectionViewCell: UICollectionViewCell {
                 }
             }.resume()
         }
-        
     }
     
     required init?(coder: NSCoder) {

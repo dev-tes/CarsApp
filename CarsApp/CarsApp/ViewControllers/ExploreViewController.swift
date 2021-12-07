@@ -90,7 +90,7 @@ class ExploreViewController: UIViewController {
       collectionView.isUserInteractionEnabled = true
       collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
       collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .green
+        collectionView.backgroundColor = .systemGray6
       return collectionView
     }()
 
@@ -100,8 +100,13 @@ class ExploreViewController: UIViewController {
         setupConstraints()
         populateBrandCollectionView()
         populateMainCollectionView()
+        navigationController?.navigationBar.isHidden = true
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
     
     // MARK: - SETUP VIEWS FUNCTION
     func addDefaultViews() {
@@ -118,15 +123,15 @@ class ExploreViewController: UIViewController {
       addDefaultViews()
       NSLayoutConstraint.activate([
         //MARK: - CONSTRAINTS FOR EXPLORE ICON
-        exploreIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -20),
+        exploreIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
         exploreIcon.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         exploreIcon.heightAnchor.constraint(equalToConstant: 25),
         exploreIcon.widthAnchor.constraint(equalToConstant: 25),
         //MARK: - CONSTRAINTS FOR PAGETITLE LABEL
-        titlePageLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -20),
+        titlePageLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
         titlePageLabel.leadingAnchor.constraint(equalTo: exploreIcon.trailingAnchor, constant: 20),
         //MARK: - CONSTRAINTS FOR PAGETITLE LABEL
-        cartIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -20),
+        cartIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
         cartIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         cartIcon.heightAnchor.constraint(equalToConstant: 30),
         cartIcon.widthAnchor.constraint(equalToConstant: 30),
@@ -144,7 +149,7 @@ class ExploreViewController: UIViewController {
         //MARK: - BRANDCOLLECTIONVIEW CONSTRAINTS
         brandCollectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20),
         brandCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-        brandCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 10),
+        brandCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         //MARK: - MAINCOLLECTIONVIEW CONSTRAINTS
         mainCollectionView.topAnchor.constraint(equalTo: brandCollectionView.bottomAnchor, constant: 20),
         mainCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),

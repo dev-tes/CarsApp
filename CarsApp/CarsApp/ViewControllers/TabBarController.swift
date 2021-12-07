@@ -22,11 +22,11 @@ class TabBarController: UITabBarController {
         // MARK: Assign viewController to tab Bar
               self.setViewControllers([homeViewController, favoriteViewController, cartViewController, notificationViewController, chatViewController], animated: false)
               guard let items = self.tabBar.items else { return }
-              let images = ["house.fill", "heart.fill","", "bell.fill", "message.fill"]
+              let images = ["house.fill", "heart.fill","square.and.arrow.up.circle.fill", "bell.fill", "message.fill"]
               for item in 0...4 {
                 items[item].image = UIImage(systemName: images[item])
               }
-        items[2].image = UIImage(named: "57")
+//        items[2].image = UIImage(named: "bag")
         
         // MARK: Changing tint Color
         self.tabBar.tintColor = .systemGray

@@ -62,7 +62,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     let productImageV: UIImageView = {
       let view = UIImageView()
       view.backgroundColor = UIColor(red: 0.93, green: 0.93, blue: 0.97, alpha: 1.00)
-      view.contentMode = .scaleAspectFit
+      view.contentMode = .scaleAspectFill
       view.layer.cornerRadius = 15
       view.isUserInteractionEnabled = true
       view.translatesAutoresizingMaskIntoConstraints = false
@@ -119,10 +119,11 @@ class MainCollectionViewCell: UICollectionViewCell {
                                                     bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
                                                     bottomConstant: 0, rightConstant: 0)
       productRateView.anchorWithConstantsToTop(top: yearTextView.bottomAnchor, left: leftAnchor,
-                                               bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 300,
-                                               bottomConstant: 70, rightConstant: 0)
+                                               bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 0,
+                                               bottomConstant: 70, rightConstant: 40)
       productRateView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05).isActive = true
       productRateView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05).isActive = true
+//        productRateView.trailingAnchor.constraint(equalTo: productRateView.leftAnchor, constant: 10).isActive = true
       addButton.anchorWithConstantsToTop(top: productRateView.bottomAnchor, left: leftAnchor,
                                          bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 330,
                                          bottomConstant: 20, rightConstant: 0)
@@ -131,7 +132,10 @@ class MainCollectionViewCell: UICollectionViewCell {
       
       NSLayoutConstraint.activate([
         productRateLabel.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -12),
-        productRateLabel.trailingAnchor.constraint(equalTo: productDetailsView.trailingAnchor, constant: -30)
+        productRateLabel.trailingAnchor.constraint(equalTo: productDetailsView.trailingAnchor, constant: -30),
+        
+        productRateView.topAnchor.constraint(equalTo: productNametextView.topAnchor)
+        
       ])
     }
     
@@ -152,9 +156,9 @@ class MainCollectionViewCell: UICollectionViewCell {
                     guard let image: SVGKImage = SVGKImage(contentsOf: url) else {
                         return
                     }
-                    self.productImageView.image = image.uiImage
+                    self.productImageV.image = image.uiImage
                     guard let img  = UIImage(data: data) else { return }
-                    self.productImageView.image = img
+                    self.productImageV.image = img
                 }
             }.resume()
 
@@ -163,7 +167,7 @@ class MainCollectionViewCell: UICollectionViewCell {
                 guard let data = data, error == nil else { return}
                 viewModel.imageData = data
                 DispatchQueue.main.async {
-                    self.productImageView.image = UIImage(data: data)
+                    self.productImageV.image = UIImage(data: data)
                 }
             }.resume()
         }
