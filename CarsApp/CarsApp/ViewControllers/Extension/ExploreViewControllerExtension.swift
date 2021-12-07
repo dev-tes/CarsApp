@@ -48,8 +48,8 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
         if collectionView == brandCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BrandCollectionViewCell.identifier, for: indexPath) as? BrandCollectionViewCell else { return UICollectionViewCell() }
                 cell.configure(with: viewModel[indexPath.row])
-              cell.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
-              cell.layer.cornerRadius = cell.frame.size.height/2
+                cell.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.00)
+                cell.layer.cornerRadius = cell.frame.size.height/2
           return cell
         } else {
           
@@ -76,9 +76,23 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
           return cell
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+      if collectionView  == brandCollectionView {
+        return CGSize(width: 60, height: 60)
+      } else {
+        return CGSize(width: view.frame.width, height: 350)
+      }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       if collectionView == mainCollectionView {
-          print("pCV")
+            let viewController = ProductDetailsViewController()
+            viewController.productName = (list?.result[indexPath.row].title)!
+            viewController.productBrand = (list?.result[indexPath.row].sellingCondition)!
+            viewController.productPrice = (list?.result[indexPath.row].state)!
+            viewController.configure(with: (list?.result[indexPath.row].imageUrl)!)
+            navigationController?.pushViewController(viewController, animated: true)
       } else {
           print("Pcv")
       }

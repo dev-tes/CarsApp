@@ -12,6 +12,8 @@ class ExploreViewController: UIViewController {
     var viewModel = [BrandCollectionViewModel]()
     var cars: [MakeList]?
     
+    var list: Welcome?
+    
     // MARK: - TIME LABEL TO DISPLAY THE PAGE TITLE
     lazy var titlePageLabel: UILabel = {
       let label = UILabel()
@@ -131,30 +133,23 @@ class ExploreViewController: UIViewController {
         searchBar.trailingAnchor.constraint(equalTo: searchButton.leadingAnchor, constant: -10),
         searchBar.heightAnchor.constraint(equalToConstant: 50),
         searchBar.widthAnchor.constraint(equalToConstant: 50),
-        //MARK: - BRANDCOLLECTIONVIEW CONSTRAINTS
         //MARK: - CONSTRAINTS FOR SEARCH BUTTON
         searchButton.topAnchor.constraint(equalTo: cartIcon.bottomAnchor, constant: 20),
         searchButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         searchButton.heightAnchor.constraint(equalToConstant: 50),
         searchButton.widthAnchor.constraint(equalToConstant: 50),
-        
+        //MARK: - BRANDCOLLECTIONVIEW CONSTRAINTS
         brandCollectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 20),
         brandCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
         brandCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 10),
-//        brandCollectionView.bottomAnchor.constraint(equalTo: mainCollectionView.topAnchor, constant: 20),
-        
+        //MARK: - MAINCOLLECTIONVIEW CONSTRAINTS
         mainCollectionView.topAnchor.constraint(equalTo: brandCollectionView.bottomAnchor, constant: 20),
         mainCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-        mainCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20),
+        mainCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
         mainCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 20),
         
         
       ])
-//      brandCollectionView.anchorWithConstantsToTop(top: searchBar.bottomAnchor,
-//                                                   left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 20, leftConstant: 20, bottomConstant: 600, rightConstant: 0)
-
-//        mainCollectionView.anchorWithConstantsToTop(top: brandCollectionView.bottomAnchor,
-//                                                     left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 20, leftConstant: 20, bottomConstant: 20, rightConstant: 20)
     }
 
 }
