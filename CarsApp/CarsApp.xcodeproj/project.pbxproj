@@ -29,6 +29,7 @@
 		04B325FE275E851100DA9307 /* BrandCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B325FD275E851100DA9307 /* BrandCollectionViewModel.swift */; };
 		04E17526275EE8D4001E0D5E /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E17525275EE8D4001E0D5E /* ProductDetailsViewController.swift */; };
 		04E17528275F3204001E0D5E /* MainCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E17527275F3204001E0D5E /* MainCollectionViewModel.swift */; };
+		04E1752A275FDCFA001E0D5E /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E17529275FDCF9001E0D5E /* MediaModel.swift */; };
 		B1B58BD1A7D551182435C32E /* Pods_CarsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BAE2E9A801EA91100B5160A /* Pods_CarsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		04B325FD275E851100DA9307 /* BrandCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCollectionViewModel.swift; sourceTree = "<group>"; };
 		04E17525275EE8D4001E0D5E /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		04E17527275F3204001E0D5E /* MainCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewModel.swift; sourceTree = "<group>"; };
+		04E17529275FDCF9001E0D5E /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
 		0BAE2E9A801EA91100B5160A /* Pods_CarsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFD138101DD82BC8B9EB51F /* Pods-CarsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarsApp.release.xcconfig"; path = "Target Support Files/Pods-CarsApp/Pods-CarsApp.release.xcconfig"; sourceTree = "<group>"; };
 		86831668397FEEB21C73B361 /* Pods-CarsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarsApp.debug.xcconfig"; path = "Target Support Files/Pods-CarsApp/Pods-CarsApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				04B325F5275E2D0300DA9307 /* PopularCarsModel.swift */,
 				04B325F7275E2D5900DA9307 /* CarsListModel.swift */,
 				04B325F9275E2DA800DA9307 /* CarDetailsModel.swift */,
+				04E17529275FDCF9001E0D5E /* MediaModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				04B325E1275B384500DA9307 /* NotificationViewController.swift in Sources */,
 				04B325F6275E2D0300DA9307 /* PopularCarsModel.swift in Sources */,
 				04B325E3275B385F00DA9307 /* ChatViewController.swift in Sources */,
+				04E1752A275FDCFA001E0D5E /* MediaModel.swift in Sources */,
 				04B325E5275B400F00DA9307 /* CartViewController.swift in Sources */,
 				04B325E7275B4E0E00DA9307 /* ExploreViewControllerExtension.swift in Sources */,
 				04B325FE275E851100DA9307 /* BrandCollectionViewModel.swift in Sources */,

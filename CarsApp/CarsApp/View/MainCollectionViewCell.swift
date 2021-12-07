@@ -118,12 +118,11 @@ class MainCollectionViewCell: UICollectionViewCell {
       mileageTextView.anchorWithConstantsToTop(top: yearTextView.bottomAnchor, left: leftAnchor,
                                                     bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
                                                     bottomConstant: 0, rightConstant: 0)
-      productRateView.anchorWithConstantsToTop(top: yearTextView.bottomAnchor, left: leftAnchor,
-                                               bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 0,
+      productRateView.anchorWithConstantsToTop(top: productNametextView.bottomAnchor, left: leftAnchor,
+                                               bottom: yearTextView.bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 300,
                                                bottomConstant: 70, rightConstant: 40)
       productRateView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05).isActive = true
       productRateView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.05).isActive = true
-//        productRateView.trailingAnchor.constraint(equalTo: productRateView.leftAnchor, constant: 10).isActive = true
       addButton.anchorWithConstantsToTop(top: productRateView.bottomAnchor, left: leftAnchor,
                                          bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 330,
                                          bottomConstant: 20, rightConstant: 0)
@@ -133,9 +132,6 @@ class MainCollectionViewCell: UICollectionViewCell {
       NSLayoutConstraint.activate([
         productRateLabel.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -12),
         productRateLabel.trailingAnchor.constraint(equalTo: productDetailsView.trailingAnchor, constant: -30),
-        
-        productRateView.topAnchor.constraint(equalTo: productNametextView.topAnchor)
-        
       ])
     }
     
