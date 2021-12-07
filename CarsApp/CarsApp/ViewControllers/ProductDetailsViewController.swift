@@ -2,7 +2,7 @@
 //  ProductDetailsViewController.swift
 //  CarsApp
 //
-//  Created by  Decagon on 07/12/2021.
+//  Created by  Tes on 07/12/2021.
 //
 
 import UIKit
@@ -155,7 +155,6 @@ class ProductDetailsViewController: UIViewController {
         guard let url = URL(string: urlString) else {
             return
         }
-        
         if urlString.contains("svg"){
             
             URLSession.shared.dataTask(with: url) { data, _, error in
@@ -210,7 +209,7 @@ class ProductDetailsViewController: UIViewController {
                     self?.marketPlacePriceLabel.text = "\(jsonResult.marketplacePrice) naira"
                     self?.interiorColorTextView.text = "Interior color: " + jsonResult.interiorColor
                     self?.cityTextView.text = jsonResult.city
-
+                    
                 }
             }
             catch {
@@ -218,6 +217,8 @@ class ProductDetailsViewController: UIViewController {
             }
         }.resume()
     }
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -257,45 +258,44 @@ class ProductDetailsViewController: UIViewController {
     func setupConstraints() {
         addDefaultViews()
         NSLayoutConstraint.activate([
-            //MARK: - CONSTRAINTS FOR EXPLORE ICON
             backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 25),
             backButton.widthAnchor.constraint(equalToConstant: 25),
-            //MARK: - CONSTRAINTS FOR PAGETITLE LABEL
+            
             titlePageLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             titlePageLabel.leadingAnchor.constraint(equalTo: backButton.trailingAnchor, constant: 40),
-            //MARK: - CONSTRAINTS FOR PAGETITLE LABEL
+            
             cartIcon.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             cartIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             cartIcon.heightAnchor.constraint(equalToConstant: 30),
             cartIcon.widthAnchor.constraint(equalToConstant: 30),
-            // MARK: - CONSTRAINTS FOR PRODUCT NAME LABEL
+            
             productNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             productNameLabel.topAnchor.constraint(equalTo: titlePageLabel.bottomAnchor, constant: 30),
-            //MARK: - CONSTRAINTS FOR PRODUCT DETAILS VIEW
+            
             productDetailsView.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 100),
             productDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             productDetailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             productDetailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
-            //MARK: - CONSTRAINTS FOR PRODUCT IMAGE VIEW
+            
             productImageV.topAnchor.constraint(equalTo: productNameLabel.bottomAnchor, constant: 40),
             productImageV.leadingAnchor.constraint(equalTo: productDetailsView.leadingAnchor, constant: 20),
             productImageV.trailingAnchor.constraint(equalTo: productDetailsView.trailingAnchor, constant: -20),
             productImageV.bottomAnchor.constraint(equalTo: productDetailsView.bottomAnchor, constant: -150),
-            //MARK: - CONSTRAINTS FOR PRODUCT NAME DETAILS
+            
             transmissionTextView.topAnchor.constraint(equalTo: productImageV.bottomAnchor, constant: 40),
             transmissionTextView.leadingAnchor.constraint(equalTo: productDetailsView.leadingAnchor, constant: 20),
-            //MARK: - CONSTRAINTS FOR PRODUCT BRAND DETAILS
+            
             yearTextView.topAnchor.constraint(equalTo: transmissionTextView.bottomAnchor, constant: 10),
             yearTextView.leadingAnchor.constraint(equalTo: productDetailsView.leadingAnchor, constant: 20),
-            //MARK: - CONSTRAINTS FOR PRODUCT PRICE DETAILS
+            
             cityTextView.topAnchor.constraint(equalTo: yearTextView.bottomAnchor, constant: 10),
             cityTextView.leadingAnchor.constraint(equalTo: productDetailsView.leadingAnchor, constant: 20),
-            //MARK: - CONSTRAINTS FOR PRODUCT RATE LABEL
+            
             fuelTypeLabel.topAnchor.constraint(equalTo: productImageV.bottomAnchor, constant: 40),
             fuelTypeLabel.trailingAnchor.constraint(equalTo: productDetailsView.trailingAnchor, constant: -20),
-            //MARK: - CONSTRAINTS FOR PRODUCT PURCHASE BUTTON
+            
             marketPlacePriceLabel.topAnchor.constraint(equalTo: fuelTypeLabel.bottomAnchor, constant: 10),
             marketPlacePriceLabel.trailingAnchor.constraint(equalTo: productDetailsView.trailingAnchor, constant: -20),
             

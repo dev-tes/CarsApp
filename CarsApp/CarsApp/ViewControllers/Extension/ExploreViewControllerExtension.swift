@@ -95,12 +95,6 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
             viewController.productName = mainCollectionViewModel[indexPath.row].title
             viewController.id = mainCollectionViewModel[indexPath.row].id
             UserDefaults.standard.set(viewController.id, forKey: "Myid")
-//            viewController.productBrand = String(mainCollectionViewModel[indexPath.row].year)
-//            viewController.productPrice = (mainCollectionViewModel[indexPath.row].state)
-            
-//            viewController.productName = "Toyota"
-            viewController.transmission = "transmission"
-            viewController.productPrice = "state"
             viewController.configure(with: (mainCollectionViewModel[indexPath.row].imageURL))
             navigationController?.pushViewController(viewController, animated: true)
         }

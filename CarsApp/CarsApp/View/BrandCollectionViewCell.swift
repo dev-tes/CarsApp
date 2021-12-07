@@ -54,7 +54,6 @@ class BrandCollectionViewCell: UICollectionViewCell {
         let url = URL(string: urlString)
         
         if urlString.contains("svg"){
-            
             URLSession.shared.dataTask(with: url!) { data, _, error in
                 guard let data = data, error == nil else { return}
                 viewModel.imageData = data
@@ -67,7 +66,6 @@ class BrandCollectionViewCell: UICollectionViewCell {
                     self.productImageView.image = img
                 }
             }.resume()
-            
         } else {
             URLSession.shared.dataTask(with: url!) { data, _, error in
                 guard let data = data, error == nil else { return}
@@ -78,9 +76,7 @@ class BrandCollectionViewCell: UICollectionViewCell {
             }.resume()
         }
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

@@ -2,7 +2,7 @@
 //  MainCollectionViewModel.swift
 //  CarsApp
 //
-//  Created by  Decagon on 07/12/2021.
+//  Created by  Tes on 07/12/2021.
 //
 
 import Foundation
@@ -31,6 +31,5 @@ class MainCollectionViewModel {
         self.state = state
         self.mileage = mileage
         self.mileageUnit = mileageUnit
-        
     }
 }

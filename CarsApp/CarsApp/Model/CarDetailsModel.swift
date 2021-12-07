@@ -17,6 +17,5 @@ struct CarDetails: Codable {
 
 // MARK: - Detail
 struct Detail: Codable {
-//    let typeURL: String
     let value: String
 }
