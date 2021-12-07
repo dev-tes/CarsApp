@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Json4Swift_Base : Codable {
+struct PopularCarModel : Codable {
     let makeList : [MakeList]
     let pagination : Pagination
 

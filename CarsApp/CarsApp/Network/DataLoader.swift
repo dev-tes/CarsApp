@@ -12,14 +12,14 @@ class DataLoader {
     static let shared = DataLoader()
     
     //MARK: - Method to get current weather data from API
-   public func pullJSONData(completionHandler: @escaping (Json4Swift_Base) -> ()) {
+   public func pullJSONData(completionHandler: @escaping (PopularCarModel) -> ()) {
         let url = "https://api-prod.autochek.africa/v1/inventory/make?popular=true"
         
         if let url = URL(string: url) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {
-                        let json = try JSONDecoder().decode(Json4Swift_Base.self, from: data)
+                        let json = try JSONDecoder().decode(PopularCarModel.self, from: data)
                         print("Here is the data")
                         print(json)
                         completionHandler(json)
@@ -30,14 +30,14 @@ class DataLoader {
             }.resume()
         }
     }
-    public func pullListJSONData(completionHandler: @escaping (Welcome) -> ()) {
+    public func pullListJSONData(completionHandler: @escaping (CarsListModel) -> ()) {
          let url = "https://api-prod.autochek.africa/v1/inventory/car/search"
          
          if let url = URL(string: url) {
              URLSession.shared.dataTask(with: url) { data, response, error in
                  if let data = data {
                      do {
-                         let json = try JSONDecoder().decode(Welcome.self, from: data)
+                         let json = try JSONDecoder().decode(CarsListModel.self, from: data)
                          print("Here is the data")
                          print(json)
                          completionHandler(json)

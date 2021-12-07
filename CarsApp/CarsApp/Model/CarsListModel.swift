@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Welcome
-struct Welcome: Codable {
+struct CarsListModel: Codable {
     let result: [Result]
     let pagination: Paginations
 }

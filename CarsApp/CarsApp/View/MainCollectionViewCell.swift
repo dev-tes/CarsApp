@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVGKit
 
 class MainCollectionViewCell: UICollectionViewCell {
     static let identifier = "MainCollectionViewCell"
@@ -26,9 +27,9 @@ class MainCollectionViewCell: UICollectionViewCell {
       textView.translatesAutoresizingMaskIntoConstraints = false
       return textView
     }()
-    let productBrandTextView: UILabel = {
+    let yearTextView: UILabel = {
       let textView = UILabel()
-      textView.text = "Brand"
+      textView.text = "2010"
       textView.font = UIFont.boldSystemFont(ofSize: 13)
       textView.font = UIFont(name: "NunitoSans-Regular", size: 13)
       textView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,9 +50,10 @@ class MainCollectionViewCell: UICollectionViewCell {
       imageView.translatesAutoresizingMaskIntoConstraints = false
       return imageView
     }()
-    let productPriceTextView: UILabel = {
+    let mileageTextView: UILabel = {
       let textView = UILabel()
       textView.text = "$111.67"
+        textView.text = "product price"
       textView.font = UIFont.boldSystemFont(ofSize: 14)
       textView.font = UIFont(name: "NunitoSans-Semibold", size: 14)
       textView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,13 +89,12 @@ class MainCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
       super.init(frame: frame)
       setUpViews()
-      
     }
     
     func setUpViews() {
       productDetailsView.addSubview(productNametextView)
-      productDetailsView.addSubview(productBrandTextView)
-      productDetailsView.addSubview(productPriceTextView)
+      productDetailsView.addSubview(yearTextView)
+      productDetailsView.addSubview(mileageTextView)
       productDetailsView.addSubview(productRateView)
       productDetailsView.addSubview(productRateLabel)
       addSubview(productImageV)
@@ -111,13 +112,13 @@ class MainCollectionViewCell: UICollectionViewCell {
       productNametextView.anchorWithConstantsToTop(top: productImageV.bottomAnchor, left: leftAnchor,
                                                    bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
                                                    bottomConstant: 60, rightConstant: 0)
-      productBrandTextView.anchorWithConstantsToTop(top: productNametextView.bottomAnchor, left: leftAnchor,
+      yearTextView.anchorWithConstantsToTop(top: productNametextView.bottomAnchor, left: leftAnchor,
                                                     bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
                                                     bottomConstant: 40, rightConstant: 0)
-      productPriceTextView.anchorWithConstantsToTop(top: productBrandTextView.bottomAnchor, left: leftAnchor,
+      mileageTextView.anchorWithConstantsToTop(top: yearTextView.bottomAnchor, left: leftAnchor,
                                                     bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
                                                     bottomConstant: 0, rightConstant: 0)
-      productRateView.anchorWithConstantsToTop(top: productBrandTextView.bottomAnchor, left: leftAnchor,
+      productRateView.anchorWithConstantsToTop(top: yearTextView.bottomAnchor, left: leftAnchor,
                                                bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 300,
                                                bottomConstant: 70, rightConstant: 0)
       productRateView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05).isActive = true
@@ -132,6 +133,41 @@ class MainCollectionViewCell: UICollectionViewCell {
         productRateLabel.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -12),
         productRateLabel.trailingAnchor.constraint(equalTo: productDetailsView.trailingAnchor, constant: -30)
       ])
+    }
+    
+    public func configure(with viewModel: MainCollectionViewModel) {
+        productNametextView.text = viewModel.title
+        yearTextView.text = String(viewModel.year)
+        mileageTextView.text = ("\(viewModel.mileage)\(viewModel.mileageUnit)")
+        
+        let urlString = viewModel.imageURL
+        let url = URL(string: urlString)
+
+        if urlString.contains("svg"){
+
+            URLSession.shared.dataTask(with: url!) { data, _, error in
+                guard let data = data, error == nil else { return}
+                viewModel.imageData = data
+                DispatchQueue.main.async {
+                    guard let image: SVGKImage = SVGKImage(contentsOf: url) else {
+                        return
+                    }
+                    self.productImageView.image = image.uiImage
+                    guard let img  = UIImage(data: data) else { return }
+                    self.productImageView.image = img
+                }
+            }.resume()
+
+        } else {
+            URLSession.shared.dataTask(with: url!) { data, _, error in
+                guard let data = data, error == nil else { return}
+                viewModel.imageData = data
+                DispatchQueue.main.async {
+                    self.productImageView.image = UIImage(data: data)
+                }
+            }.resume()
+        }
+
     }
     
     required init?(coder: NSCoder) {
