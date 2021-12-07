@@ -7,29 +7,14 @@
 import Foundation
 
 // MARK: - APIResponse
-struct APIResponse: Codable {
-    let damageMedia: [DamageMedia]
-    let inspectorDetails: InspectorDetails
-}
-
-// MARK: - DamageMedia
-struct DamageMedia: Codable {
-    let inspectionItems: [InspectionItem]
-    let name, comment: String?
-}
-
-// MARK: - InspectionItem
-struct InspectionItem: Codable {
-    let medias: [Media]
-    let name, response: String
-    let comment, condition: String?
-}
-
-// MARK: - Media
-struct Media: Codable {
-}
-
-// MARK: - InspectorDetails
-struct InspectorDetails: Codable {
-    let inspectorFullName, workshopName: String
+struct MediaResponse: Codable {
+    let id: String
+    let year: Int
+    let mileage: Int
+    let marketplacePrice: Int
+    let transmission: String
+    let interiorColor, engineType: String
+    let fuelType: String
+    let city: String
+    let mileageUnit: String
 }

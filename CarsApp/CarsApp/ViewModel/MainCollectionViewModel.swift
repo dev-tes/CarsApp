@@ -8,6 +8,7 @@
 import Foundation
 
 class MainCollectionViewModel {
+    let id: String
     let title: String
     let imageURL: String
     var imageData: Data? = nil
@@ -15,13 +16,14 @@ class MainCollectionViewModel {
     let  mileage, year : Int
     let state, mileageUnit: String
     
-    init(title: String,
+    init(id: String,title: String,
          imageURL: String,
          year: Int,
          city: String,
          state: String,
          mileage: Int,
          mileageUnit: String){
+        self.id = id
         self.title = title
         self.imageURL = imageURL
         self.year = year

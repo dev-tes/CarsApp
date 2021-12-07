@@ -48,6 +48,7 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
             self?.carsAndDetails = data.result
             self?.mainCollectionViewModel = (self?.carsAndDetails?.compactMap({
                 MainCollectionViewModel(
+                    id: $0.id,
                     title: $0.title,
                     imageURL: $0.imageUrl,
                     year: $0.year,
@@ -92,8 +93,14 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
         if collectionView == mainCollectionView {
             let viewController = ProductDetailsViewController()
             viewController.productName = mainCollectionViewModel[indexPath.row].title
-            viewController.productBrand = String(mainCollectionViewModel[indexPath.row].year)
-            viewController.productPrice = (mainCollectionViewModel[indexPath.row].state)
+            viewController.id = mainCollectionViewModel[indexPath.row].id
+            UserDefaults.standard.set(viewController.id, forKey: "Myid")
+//            viewController.productBrand = String(mainCollectionViewModel[indexPath.row].year)
+//            viewController.productPrice = (mainCollectionViewModel[indexPath.row].state)
+            
+//            viewController.productName = "Toyota"
+            viewController.transmission = "transmission"
+            viewController.productPrice = "state"
             viewController.configure(with: (mainCollectionViewModel[indexPath.row].imageURL))
             navigationController?.pushViewController(viewController, animated: true)
         }
