@@ -8,7 +8,7 @@
 import UIKit
 import SVGKit
 
-class MainCollectionViewCell: UICollectionViewCell {
+class MainCollectionViewCell: UICollectionViewCell { 
     static let identifier = "MainCollectionViewCell"
     
     let productImageView: UIImageView = {
@@ -118,7 +118,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         mileageTextView.anchorWithConstantsToTop(top: yearTextView.bottomAnchor, left: leftAnchor,
                                                  bottom: bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 50,
                                                  bottomConstant: 0, rightConstant: 0)
-        productRateView.anchorWithConstantsToTop(top: productNametextView.bottomAnchor, left: leftAnchor,
+        productRateView.anchorWithConstantsToTop(top: productImageV.bottomAnchor, left: leftAnchor,
                                                  bottom: yearTextView.bottomAnchor,right: rightAnchor,topConstant: 0,leftConstant: 300,
                                                  bottomConstant: 70, rightConstant: 40)
         productRateView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05).isActive = true
