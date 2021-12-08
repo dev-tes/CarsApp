@@ -1,5 +1,5 @@
 # CarsApp
 
-Here is a demo of the app
+Here is a demo of the app:
 
-https://github.com/dev-tes/CarsApp/issues/1#issue-1073755444
+https://user-images.githubusercontent.com/58847828/145125952-460dceef-8f9b-4e14-99cc-c60a24155229.mov

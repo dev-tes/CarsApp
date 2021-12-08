@@ -25,7 +25,7 @@ class ExploreViewController: UIViewController {
         label.numberOfLines = 1
         return label
     }()
-    // MARK: - EXPLORE IMAGE ICON
+    // MARK: EXPLORE IMAGE ICON
     lazy var exploreIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Explore-Image-Icon")
