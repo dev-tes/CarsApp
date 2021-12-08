@@ -190,7 +190,7 @@ class ProductDetailsViewController: UIViewController {
     }
     
     func setUpData() {
-        let query: String? = UserDefaults.standard.string(forKey: "Myid")
+        let query: String? = UserDefaults.standard.string(forKey: "id")
         let urlString = "https://api-prod.autochek.africa/v1/inventory/car/\(query ?? "")"
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { [ weak self ] data, response, error in

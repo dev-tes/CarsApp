@@ -25,6 +25,7 @@ class BrandCollectionViewCell: UICollectionViewCell {
         text.font = UIFont(name: "Helvetica", size: 13)
         text.numberOfLines = 0
         text.text = "Lexus"
+        text.textAlignment = .center
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
@@ -37,13 +38,13 @@ class BrandCollectionViewCell: UICollectionViewCell {
     func setUpViews() {
         addSubview(brandName)
         addSubview(productImageView)
-        productImageView.anchorWithConstantsToTop(top: topAnchor, left: leftAnchor, bottom: brandName.bottomAnchor, right: rightAnchor, topConstant: -10, leftConstant: 0, bottomConstant: 20, rightConstant: 0)
+        productImageView.anchorWithConstantsToTop(top: topAnchor, left: leftAnchor, bottom: brandName.bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 20, rightConstant: 0)
         productImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1).isActive = true
         brandName.anchorWithConstantsToTop(top: productImageView.bottomAnchor, left: leftAnchor,
                                            bottom: bottomAnchor,
                                            right: rightAnchor,
                                            topConstant: 70,
-                                           leftConstant: 6,
+                                           leftConstant: 0,
                                            bottomConstant: 0, rightConstant: -10)
         brandName.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35).isActive = true
     }

@@ -94,7 +94,7 @@ extension ExploreViewController: UICollectionViewDataSource, UICollectionViewDel
             let viewController = ProductDetailsViewController()
             viewController.productName = mainCollectionViewModel[indexPath.row].title
             viewController.id = mainCollectionViewModel[indexPath.row].id
-            UserDefaults.standard.set(viewController.id, forKey: "Myid")
+            UserDefaults.standard.set(viewController.id, forKey: "id")
             viewController.configure(with: (mainCollectionViewModel[indexPath.row].imageURL))
             navigationController?.pushViewController(viewController, animated: true)
         }
